@@ -153,13 +153,13 @@ javac_version_str := $(shell unset _JAVA_OPTIONS JAVA_TOOL_OPTIONS && javac -ver
 ifeq ($(LEGACY_USE_JAVA6),)
 required_version := "1.7.x"
 required_javac_version := "1.7"
-java_version := $(shell echo '$(java_version_str)' | grep '^java .*[ "]1\.7[\. "$$]')
-javac_version := $(shell echo '$(javac_version_str)' | grep '[ "]1\.7[\. "$$]')
+java_version := $(shell echo '$(java_version_str)' | grep '^java .*[ "]1\.7[\.*_"$$]')
+javac_version := $(shell echo '$(javac_version_str)' | grep '[ "]1\.7[\.*_"$$]')
 else # if LEGACY_USE_JAVA6
 required_version := "1.6.x"
 required_javac_version := "1.6"
-java_version := $(shell echo '$(java_version_str)' | grep '^java .*[ "]1\.6[\. "$$]')
-javac_version := $(shell echo '$(javac_version_str)' | grep '[ "]1\.6[\. "$$]')
+java_version := $(shell echo '$(java_version_str)' | grep '^java .*[ "]1\.6[\.*_ "$$]')
+javac_version := $(shell echo '$(javac_version_str)' | grep '[ "]1\.6[\.*_ "$$]')
 endif # if LEGACY_USE_JAVA6
 
 ifeq ($(strip $(java_version)),)
