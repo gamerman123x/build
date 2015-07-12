@@ -63,6 +63,9 @@ CLANG_CONFIG_EXTRA_CFLAGS += \
 CLANG_CONFIG_EXTRA_CFLAGS += \
   -Wno-unused-command-line-argument
 
+CLANG_CONFIG_EXTRA_CFLAGS += \
+  -Wno-unknown-warning-option
+
 CLANG_CONFIG_UNKNOWN_CFLAGS := \
   -mvectorize-with-neon-double \
   -mvectorize-with-neon-quad \
