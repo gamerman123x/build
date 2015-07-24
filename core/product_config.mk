@@ -278,14 +278,12 @@ product_runtimes :=
 
 PRODUCTS.$(INTERNAL_PRODUCT).PRODUCT_PROPERTY_OVERRIDES += persist.sys.dalvik.vm.lib.2=$(DALVIK_VM_LIB)
 
-ifeq ($(DEX_PREOPT_DEFAULT),)
-  ifeq ($(words $(PRODUCT_RUNTIMES)),1)
-    # If we only have one runtime, we can strip classes.dex by default during dex_preopt
-    DEX_PREOPT_DEFAULT := true
-  else
+ifeq ($(words $(PRODUCT_RUNTIMES)),1)
+  # If we only have one runtime, we can strip classes.dex by default during dex_preopt
+  DEX_PREOPT_DEFAULT := true
+else
   # If we have more than one, we leave the classes.dex alone for post-boot analysis
-    DEX_PREOPT_DEFAULT := nostripping
-  endif
+  DEX_PREOPT_DEFAULT := nostripping
 endif
 
 #############################################################################
@@ -378,6 +376,22 @@ PRODUCT_COPY_FILES += \
     $(_boot_animation):system/media/bootanimation.zip
 endif
 _boot_animation :=
+
+# We might want to skip items listed in PRODUCT_COPY_FILES for
+# various reasons. This is useful for replacing a binary module with one
+# built from source. This should be a list of destination files under $OUT
+PRODUCT_COPY_FILES_OVERRIDES := \
+	$(addprefix %:, $(strip $(PRODUCTS.$(INTERNAL_PRODUCT).PRODUCT_COPY_FILES_OVERRIDES)))
+
+ifneq ($(PRODUCT_COPY_FILES_OVERRIDES),)
+    PRODUCT_COPY_FILES := $(filter-out $(PRODUCT_COPY_FILES_OVERRIDES), $(PRODUCT_COPY_FILES))
+endif
+
+.PHONY: listcopies
+listcopies:
+	@echo "Copy files: $(PRODUCT_COPY_FILES)"
+	@echo "Overrides: $(PRODUCT_COPY_FILES_OVERRIDES)"
+
 
 # We might want to skip items listed in PRODUCT_COPY_FILES for
 # various reasons. This is useful for replacing a binary module with one

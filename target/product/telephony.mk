@@ -18,7 +18,7 @@
 # to products that have telephony hardware.
 
 PRODUCT_PACKAGES := \
+    CellBroadcastReceiver \
     Dialer \
     InCallUI \
-    Mms \
     rild

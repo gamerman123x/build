@@ -496,6 +496,7 @@ include $(BUILD_SYSTEM)/qcom_target.mk
 # ###############################################################
 # Set up final options.
 # ###############################################################
+
 HOST_GLOBAL_CFLAGS += $(COMMON_GLOBAL_CFLAGS)
 HOST_RELEASE_CFLAGS += $(COMMON_RELEASE_CFLAGS)
 

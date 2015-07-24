@@ -20,7 +20,6 @@ that build.  An incremental OTA is produced if -i is given, otherwise
 a full OTA is produced.
 
 Usage:  ota_from_target_files [flags] input_target_files output_ota_package
-
   --board_config  <file>
       Deprecated.
 
