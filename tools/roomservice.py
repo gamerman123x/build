@@ -40,7 +40,7 @@ repositories = []
 
 page = 1
 while not depsonly:
-    result = json.loads(urllib2.urlopen("https://api.github.com/users/AICP/repos?page=%d" % page).read())
+    result = json.loads(urllib2.urlopen("https://api.github.com/users/gamerman123x/repos?page=%d" % page).read())
     if len(result) == 0:
         break
     for res in result:
@@ -131,7 +131,7 @@ def add_to_manifest_dependencies(repositories):
                 print 'Updating dependency %s' % (repo_name)
                 existing_project.set('name', repository['repository'])
             if existing_project.attrib['revision'] == repository['branch']:
-                print 'AICP/%s already exists' % (repo_name)
+                print 'gamerman123x/%s already exists' % (repo_name)
             else:
                 print 'updating branch for %s to %s' % (repo_name, repository['branch'])
                 existing_project.set('revision', repository['branch'])
@@ -139,7 +139,7 @@ def add_to_manifest_dependencies(repositories):
 
         print 'Adding dependency: %s -> %s' % (repo_name, repo_target)
         project = ElementTree.Element("project", attrib = { "path": repo_target,
-            "remote": "aicp", "name": repo_name, "revision": "lp5.1" })
+            "remote": "gm", "name": repo_name, "revision": "lp5.1" })
 
         if 'branch' in repository:
             project.set('revision',repository['branch'])
@@ -167,15 +167,15 @@ def add_to_manifest(repositories):
         existing_project = exists_in_tree_device(lm, repo_name)
         if existing_project != None:
             if existing_project.attrib['revision'] == repository['branch']:
-                print 'AICP/%s already exists' % (repo_name)
+                print 'gamerman123x/%s already exists' % (repo_name)
             else:
-                print 'updating branch for AICP/%s to %s' % (repo_name, repository['branch'])
+                print 'updating branch for gamerman123x/%s to %s' % (repo_name, repository['branch'])
                 existing_project.set('revision', repository['branch'])
             continue
 
-        print 'Adding dependency: AICP/%s -> %s' % (repo_name, repo_target)
+        print 'Adding dependency: gamerman123x/%s -> %s' % (repo_name, repo_target)
         project = ElementTree.Element("project", attrib = { "path": repo_target,
-            "remote": "aicp", "name": "AICP/%s" % repo_name, "revision": "lp5.1" })
+            "remote": "gm", "name": "gamerman123x/%s" % repo_name, "revision": "lp5.1" })
 
         if 'branch' in repository:
             project.set('revision', repository['branch'])
