@@ -434,7 +434,6 @@ LOCAL_DISABLE_STRICT := \
     camera.msm8084 \
     libmmcamera_interface \
     camera.hammerhead \
-    stlport \
     tcpdump
 
 DISABLE_STRICT := \
