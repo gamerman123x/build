@@ -1810,24 +1810,22 @@ bacon: otapackage
 	$(hide) rm -f $(PRODUCT_OUT)/*.md5sum
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(AICP_TARGET_PACKAGE)
 	$(hide) (cd `dirname $(AICP_TARGET_PACKAGE)` && $(MD5SUM) `basename $(AICP_TARGET_PACKAGE)` > $(AICP_TARGET_PACKAGE).md5sum)
-	@echo  ""                                                                                        
-	@echo -e $(CL_CHAR1)" ▄▄▄·  "${CL_CHAR2}" ▪   "${CL_CHAR3}"  ▄▄·  "${CL_CHAR4}"  ▄▄▄·  "${CL_RST}
-	@echo -e $(CL_CHAR1)"▐█ ▀█  "${CL_CHAR2}" ██  "${CL_CHAR3}" ▐█ ▌▪ "${CL_CHAR4}" ▐█ ▄█  "${CL_RST}
-	@echo -e $(CL_CHAR1)"▄█▀▀█  "${CL_CHAR2}" ▐█· "${CL_CHAR3}" ██ ▄▄ "${CL_CHAR4}"  ██▀·  "${CL_RST}
-	@echo -e $(CL_CHAR1)"▐█ ▪▐▌ "${CL_CHAR2}" ▐█▌ "${CL_CHAR3}" ▐███▌ "${CL_CHAR4}" ▐█▪·•  "${CL_RST}
-	@echo -e $(CL_CHAR1)" ▀  ▀  "${CL_CHAR2}" ▀▀▀ "${CL_CHAR3}"  ▀▀▀  "${CL_CHAR4}" .▀     "${CL_RST}
-	@echo  ""                                                                                        
-	@echo -e ${CL_CHAR5}"▄▄▄   "${CL_CHAR6}"       "${CL_CHAR7}"• ▌ ▄ ·.  "${CL_RST}                 
-	@echo -e ${CL_CHAR5}"▀▄ █· "${CL_CHAR6}"▪      "${CL_CHAR7}"·██ ▐███▪ "${CL_RST}                 
-	@echo -e ${CL_CHAR5}"▐▀▀▄  "${CL_CHAR6}" ▄█▀▄  "${CL_CHAR7}"▐█ ▌▐▌▐█· "${CL_RST}                 
-	@echo -e ${CL_CHAR5}"▐█•█▌ "${CL_CHAR6}"▐█▌.▐▌ "${CL_CHAR7}"██ ██▌▐█▌ "${CL_RST}                 
-	@echo -e ${CL_CHAR5}".▀  ▀ "${CL_CHAR6}" ▀█▄▀▪ "${CL_CHAR7}"▀▀  █▪▀▀▀ "${CL_RST}                 
-	@echo  ""                                                                                        
-	@echo -e ${CL_CYN}"===========-Package complete-==========="${CL_RST}
+	@echo  ""
+	@echo -e ${CL_CYN}"======================================"${CL_CYN}
+	@echo -e ${CL_GRN}"|   ______________________________   |"${CL_GRN}
+	@echo -e ${CL_YLW}"|   ___    |___  _/_  ____/__  __ \  |"${CL_YLW}
+	@echo -e ${CL_RED}"|   __  /| |__  / _  /    __  /_/ /  |"${CL_RED}
+	@echo -e ${CL_GRN}"|   _  ___ |_/ /  / /___  _  ____/   |"${CL_GRN}
+	@echo -e ${CL_YLW}"|   /_/  |_/___/  \____/  /_/        |"${CL_YLW}
+	@echo -e ${CL_RED}"|                                    |"${CL_RED}
+	@echo -e ${CL_CYN}"========== By: Gamerman123x =========="${CL_CYN}
+	@echo  ""
+	@echo -e ${CL_CYN}"|                                    |"${CL_RST}
+	@echo -e ${CL_CYN}"==========-Package complete-=========="${CL_RST}
 	@echo -e ${CL_CYN}"zip: "${CL_MAG} $(AICP_TARGET_PACKAGE)${CL_RST}
 	@echo -e ${CL_CYN}"md5: "${CL_MAG}" `cat $(AICP_TARGET_PACKAGE).md5sum | cut -d ' ' -f 1`"${CL_RST}
 	@echo -e ${CL_CYN}"size:"${CL_MAG}" `ls -lah $(AICP_TARGET_PACKAGE) | cut -d ' ' -f 5`"${CL_RST}
-	@echo -e ${CL_CYN}"========================================"${CL_RST}
+	@echo -e ${CL_CYN}"======================================"${CL_RST}
 	@echo -e ""
 
 bootzip: bootimage

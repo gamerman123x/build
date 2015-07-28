@@ -607,16 +607,16 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
 
   system_progress = 0.75
 
-  script.Print("*********************************************");
-  script.Print("*      ___       __       ___       ___     *")
-  script.Print("*    /\  \     /\  \     /\  \     /\  \    *")
-  script.Print("*   /::\  \   _\:\  \   /::\  \   /::\  \   *")
-  script.Print("*  /::\:\__\ /\/::\__\ /:/\:\__\ /::\:\__\  *")
-  script.Print("*  \/\::/  / \::/\/__/ \:\ \/__/ \/\::/  /  *")
-  script.Print("*    /:/  /   \:\__\    \:\__\      \/__/   *")
-  script.Print("*    \/__/     \/__/     \/__/              *")
-  script.Print("*                                           *");
-  script.Print("*********************************************");
+  script.Print("**************************************");
+  script.Print("*   ______________________________   *");
+  script.Print("*   ___    |___  _/_  ____/__  __ \  *");
+  script.Print("*   __  /| |__  / _  /    __  /_/ /  *");
+  script.Print("*   _  ___ |_/ /  / /___  _  ____/   *");
+  script.Print("*   /_/  |_/___/  \____/  /_/        *");
+  script.Print("*                                    *");
+  script.Print("**************************************");
+  script.Print("********** By: Gamerman123x **********");
+  script.Print("**************************************");
 
 
   aicpv = GetBuildProp("ro.aicp.version", OPTIONS.info_dict)
