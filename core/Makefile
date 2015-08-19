@@ -1646,6 +1646,9 @@ ifdef PRODUCT_DEFAULT_DEV_CERTIFICATE
 	$(hide) build/tools/getb64key.py $(PRODUCT_DEFAULT_DEV_CERTIFICATE).x509.pem > $(zip_root)/META/releasekey.txt
 else
 	$(hide) build/tools/getb64key.py $(DEFAULT_SYSTEM_DEV_CERTIFICATE).x509.pem > $(zip_root)/META/releasekey.txt
+ifneq ($(INSTALLED_RECOVERYIMAGE_TARGET),)
+	$(hide) PATH=$(foreach p,$(INTERNAL_USERIMAGES_BINARY_PATHS),$(p):)$$PATH MKBOOTIMG=$(MKBOOTIMG) \
+	    ./build/tools/releasetools/make_recovery_patch $(zip_root) $(zip_root)
 endif
 	@# Zip everything up, preserving symlinks
 	$(hide) (cd $(zip_root) && zip -qry ../$(notdir $@) .)
@@ -2089,4 +2092,5 @@ endif
 # we need the addon rules defined.
 ifneq ($(sdk_repo_goal),)
 include $(TOPDIR)development/build/tools/sdk_repo.mk
+endif
 endif
