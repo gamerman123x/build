@@ -35,10 +35,18 @@ TARGET_$(combo_2nd_arch_prefix)ARCH_VARIANT := armv5te
 endif
 
 # Decouple NDK library selection with platform compiler version
+ifeq (arm64,$(TARGET_ARCH))
+$(combo_2nd_arch_prefix)TARGET_NDK_GCC_VERSION := 4.9
+else
 $(combo_2nd_arch_prefix)TARGET_NDK_GCC_VERSION := 5.1
+endif
 
 ifeq ($(strip $(TARGET_GCC_VERSION_EXP)),)
+ifeq (arm64,$(TARGET_ARCH))
+$(combo_2nd_arch_prefix)TARGET_GCC_VERSION := 4.9
+else
 $(combo_2nd_arch_prefix)TARGET_GCC_VERSION := 5.1-linaro
+endif
 else
 $(combo_2nd_arch_prefix)TARGET_GCC_VERSION := $(TARGET_GCC_VERSION_EXP)
 endif
