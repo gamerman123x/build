@@ -178,6 +178,13 @@ function setpaths()
         export ANDROID_TOOLCHAIN_2ND_ARCH=$gccprebuiltdir/$toolchaindir2
     fi
 
+    # For build.prop
+    export HOST_NAME=$(get_build_var HOST_NAME)
+    export USER=$(get_build_var USER)
+    # For kernel
+    export KBUILD_BUILD_USER=$(USER)
+    export KBUILD_BUILD_HOST=$(HOST_NAME)
+
     unset ANDROID_KERNEL_TOOLCHAIN_PATH
     case $ARCH in
         arm)

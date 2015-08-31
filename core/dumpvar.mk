@@ -96,6 +96,8 @@ else
 $(info   GCC_OPTIMIZATION_LEVELS empty!)
 endif
 $(info   BUILD_ID=$(BUILD_ID))
+$(info   BUILD_USER=$(USER))
+$(info   BUILD_HOST=$(HOST_NAME))
 $(info   HOST_ARCH=$(HOST_ARCH))
 $(info   HOST_OS=$(HOST_OS))
 $(info   HOST_OS_EXTRA=$(HOST_OS_EXTRA))
