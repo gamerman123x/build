@@ -1782,7 +1782,6 @@ bacon: otapackage
 	@echo -e ${CL_CYN}"Size:"${CL_MAG}" `ls -lah $(BLISS_TARGET_PACKAGE) | cut -d ' ' -f 5`"${CL_RST}
 	@echo -e ${CL_CYN}"==============================================="${CL_RST}
 	@echo -e ""
-	$(hide) ./vendor/bliss/tools/otaxml
 
 endif    # recovery_fstab is defined
 endif    # TARGET_NO_KERNEL != true
